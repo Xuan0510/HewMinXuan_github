@@ -1,100 +1,142 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>丘旻軒 | Hew Min Xuan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Noto Sans TC', sans-serif;
-            background: linear-gradient(135deg, #000000, #1a1a1a);
-            margin: 0;
-            padding: 0;
-            color: #e0e0e0;
-            text-align: center;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>丘旻軒</title>
 
-        header {
-            padding: 3rem 1rem;
-            animation: fadeIn 1s ease-in-out;
-        }
+  <!-- 粗體字體適合海報感（Anton）與中文支援備援 -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
 
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
+  <style>
+    :root{
+      --bg: #000;
+      --fg: #fff;
+      --muted: #bfbfbf;
+      --gap: clamp(1rem, 2.5vw, 3rem);
+    }
 
-        header p {
-            font-size: 1.2rem;
-            color: #aaa;
-        }
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      font-family: "Noto Sans TC", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
 
-        main {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            animation: fadeIn 1.2s ease-in-out;
-        }
+    /* 版面 */
+    .wrap{
+      min-height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:stretch;
+      padding:calc(var(--gap) * 0.8);
+      box-sizing:border-box;
+    }
 
-        .link-card {
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0,0,0,0.4);
-        }
+    /* 海報主標 */
+    .hero{
+      display:flex;
+      flex-direction:column;
+      gap: 0.25rem;
+      align-items:flex-start;
+      line-height:0.9;
+      margin-bottom: calc(var(--gap) * 0.6);
+    }
+    .title{
+      font-family: "Anton", sans-serif;
+      font-weight:700;
+      font-size: clamp(3.5rem, 10vw, 9rem); /* 響應式巨字 */
+      letter-spacing: -0.03em;
+      margin:0;
+      transform-origin:left center;
+      will-change: transform;
+    }
+    .subtitle{
+      margin:0;
+      font-size: clamp(0.9rem, 1.6vw, 1.2rem);
+      color:var(--muted);
+      font-weight:700;
+      letter-spacing:0.06em;
+    }
 
-        .link-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0 20px rgba(29,185,84,0.6);
-        }
+    /* 連結區（大字列表式）*/
+    .links{
+      display:flex;
+      flex-direction:column;
+      gap: clamp(0.6rem, 2.2vw, 1.2rem);
+      align-items:flex-start;
+      width:100%;
+      max-width:70ch;
+    }
 
-        a {
-            text-decoration: none;
-            color: #1DB954;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
+    .link{
+      display:inline-block;
+      text-decoration:none;
+      color:var(--fg);
+      background:transparent;
+      border: none;
+      padding: 0;
+      font-weight:700;
+      font-size: clamp(1.4rem, 4.4vw, 2.6rem);
+      font-family: "Noto Sans TC", sans-serif;
+      letter-spacing:0.02em;
+      transition: transform 240ms cubic-bezier(.2,.9,.2,1), opacity 240ms, color 240ms;
+      will-change: transform, opacity;
+      text-shadow: 0 0 0 rgba(255,255,255,0);
+    }
 
-        footer {
-            margin-top: 3rem;
-            padding: 1rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
+    .link:focus,
+    .link:hover{
+      transform: translateX(8px) scale(1.02);
+      opacity: 0.95;
+      color: var(--fg);
+      outline: none;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    /* 小說明或底註 */
+    .foot{
+      margin-top: calc(var(--gap) * 0.6);
+      color:var(--muted);
+      font-size:0.9rem;
+      letter-spacing:0.04em;
+    }
+
+    /* 響應式版面在小螢幕微調 */
+    @media (max-width:560px){
+      .wrap{ padding: 2rem 1.25rem; }
+      .links{ max-width:100%; }
+      .title{ letter-spacing: -0.02em; }
+      .link{ font-size: clamp(1.1rem, 6.6vw, 1.8rem); }
+    }
+
+    /* 無障礙：鍵盤聚焦樣式 */
+    .link:focus{
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.06), 0 0 0 6px rgba(255,255,255,0.02) inset;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>丘旻軒</h1>
-        <p>Hew Min Xuan</p>
+  <div class="wrap">
+    <header class="hero" aria-hidden="false">
+      <h1 class="title">丘旻軒</h1>
+      <p class="subtitle">Hew Min Xuan</p>
     </header>
-    <main>
-        <div class="link-card">
-            <a href="https://open.spotify.com/user/31hirymx3nid6xx6267gsr6zjbma?si=7nHPXT-tTImAa8DpmWp3pQ" target="_blank">🎵 Spotify</a>
-        </div>
-        <div class="link-card">
-            <a href="https://bangumi.tv/user/661413" target="_blank">📺 Bangumi</a>
-        </div>
-        <div class="link-card">
-            <a href="https://letterboxd.com/weiqueren/" target="_blank">🎬 Letterboxd</a>
-        </div>
-        <div class="link-card">
-            <a href="https://medium.com/@mx90343" target="_blank">✍️ Medium</a>
-        </div>
-    </main>
-    <footer>
-        &copy; 2025 丘旻軒 | Hew Min Xuan
-    </footer>
+
+    <nav class="links" aria-label="主要連結">
+      <a class="link" href="https://open.spotify.com/user/31hirymx3nid6xx6267gsr6zjbma?si=7nHPXT-tTImAa8DpmWp3pQ" target="_blank" rel="noopener">Spotify — 聆聽</a>
+      <a class="link" href="https://bangumi.tv/user/661413" target="_blank" rel="noopener">Bangumi — 動畫/漫畫</a>
+      <a class="link" href="https://letterboxd.com/weiqueren/" target="_blank" rel="noopener">Letterboxd — 影評</a>
+      <a class="link" href="https://medium.com/@mx90343" target="_blank" rel="noopener">Medium — 文章</a>
+    </nav>
+
+    <div class="foot" aria-hidden="true">
+      &copy; 2025&nbsp;丘旻軒
+    </div>
+  </div>
 </body>
-</html></html>
+</html>
