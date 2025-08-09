@@ -1,83 +1,105 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>丘旻軒 | Hew Min Xuan</title>
-    <style>
-        body {
-            font-family: 'Arial Black', sans-serif;
-            background-color: #000;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #111;
-            padding: 2rem;
-            text-align: center;
-            border-bottom: 4px solid #6dd1ff;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-            letter-spacing: 2px;
-        }
-        header p {
-            margin: 0.5rem 0 0;
-            font-size: 1rem;
-            color: #ccc;
-        }
-        main {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 1rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        .card {
-            background-color: #111;
-            border: 2px solid #6dd1ff;
-            border-radius: 6px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .card:hover {
-            background-color: #222;
-            transform: translateY(-5px);
-        }
-        .card a {
-            color: #6dd1ff;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-            color: #888;
-            border-top: 2px solid #6dd1ff;
-            margin-top: 2rem;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>丘旻軒 Hew Min Xuan</title>
+<style>
+    body {
+        margin: 0;
+        font-family: "Arial Black", sans-serif;
+        background-color: black;
+        color: white;
+    }
+    header {
+        background: repeating-linear-gradient(45deg, white 0, white 10px, black 10px, black 20px);
+        padding: 20px;
+        text-align: center;
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    header span {
+        background: black;
+        padding: 5px 10px;
+        display: inline-block;
+    }
+    .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 40px 20px;
+    }
+    .section {
+        border: 3px solid white;
+        margin-bottom: 40px;
+        padding: 20px;
+        text-align: center;
+        background-color: black;
+    }
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        border-bottom: 2px solid white;
+        padding-bottom: 5px;
+    }
+    .btn {
+        display: block;
+        background: white;
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 15px;
+        margin: 10px 0;
+        border: 3px solid white;
+        transition: 0.3s;
+    }
+    .btn:hover {
+        background: black;
+        color: white;
+    }
+    .japanese {
+        font-size: 0.8rem;
+        display: block;
+        letter-spacing: 2px;
+    }
+    footer {
+        text-align: center;
+        font-size: 0.8rem;
+        padding: 20px;
+        border-top: 2px solid white;
+    }
+</style>
 </head>
 <body>
-    <header>
-        <h1>丘旻軒</h1>
-        <p>Hew Min Xuan</p>
-    </header>
-    <main>
-        <div class="card"><a href="https://open.spotify.com/user/31hirymx3nid6xx6267gsr6zjbma?si=7nHPXT-tTImAa8DpmWp3pQ" target="_blank">🎵 Spotify</a></div>
-        <div class="card"><a href="https://bangumi.tv/user/661413" target="_blank">📺 Bangumi</a></div>
-        <div class="card"><a href="https://letterboxd.com/weiqueren/" target="_blank">🎬 Letterboxd</a></div>
-        <div class="card"><a href="https://medium.com/@mx90343" target="_blank">✍️ Medium</a></div>
-    </main>
-    <footer>
-        &copy; 2025 丘旻軒 | Hew Min Xuan
-    </footer>
+
+<header>
+    <span>機密 DOCUMENT</span>
+</header>
+
+<div class="container">
+    <div class="section">
+        <h2>丘旻軒 <br> HEW MIN XUAN</h2>
+        <p>BRUTALIST / EVA STYLE PERSONAL PAGE</p>
+    </div>
+
+    <div class="section">
+        <a class="btn" href="https://open.spotify.com/user/31hirymx3nid6xx6267gsr6zjbma" target="_blank">
+            <span class="japanese">音楽記録</span>SPOTIFY
+        </a>
+        <a class="btn" href="https://bangumi.tv/user/661413" target="_blank">
+            <span class="japanese">視聴記録</span>BANGUMI
+        </a>
+        <a class="btn" href="https://letterboxd.com/weiqueren/" target="_blank">
+            <span class="japanese">映画記録</span>LETTERBOXD
+        </a>
+        <a class="btn" href="https://medium.com/@mx90343" target="_blank">
+            <span class="japanese">文章記録</span>MEDIUM
+        </a>
+    </div>
+</div>
+
+<footer>
+    © 2025 HEW MIN XUAN — EVA BRUTALIST STYLE
+</footer>
+
 </body>
 </html>
-
